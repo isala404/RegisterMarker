@@ -59,6 +59,7 @@ def view():
 @app.route('/view/absents/')
 def viewabsents():
     try:
+        db = database()
         data = db.read('SELECT * FROM PrizeWinners WHERE Absent IS NOT NULL ORDER BY PrizeID DESC')
         return render_template("absents.html", data=data)
     except:
