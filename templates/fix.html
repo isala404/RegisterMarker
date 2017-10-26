@@ -1,0 +1,24 @@
+{% extends "header.html" %}
+
+{% block body %}
+	<table class="table table-hover table-bordered table-responsive" id='admintable'>
+	  <thead class="thead-inverse">
+		<tr>
+		  <th>ID</th>
+		  <th>Name</th>
+		  <th>Mark Absent</th>
+		</tr>
+	  </thead>
+	  <tbody>
+		{% for row in data %}
+			<tr>
+			  <td>{{row[1]}}</td>
+			  <td>{{row[2]}}</td>
+			  <td><a href="/update/fix/?id={{row[0]}}">
+					<button type="button" class="btn btn-success">Mark Present</button>
+			  </a></td>		  
+			</tr>
+		{% endfor %}
+	  </tbody>
+	</table>	
+{% endblock %}

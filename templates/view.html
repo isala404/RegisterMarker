@@ -1,0 +1,31 @@
+{% extends "header.html" %}
+
+{% block body %}
+	<meta http-equiv="refresh" content="5">
+	<table class="table table-bordered table-responsive" id='admintable'>
+	  <thead class="thead-inverse">
+		<tr>
+		  <th>ID</th>
+		  <th>Name</th>
+		</tr>
+	  </thead>
+	  <tbody>
+		{% for row in data %}
+		
+			{% if row[3] != None %}
+				<tr bgcolor="#FF0000">
+			{% else %}
+				<tr>
+				  
+			{% endif %}
+				  <td>{{row[1]}}</td>
+				  <td>{{row[2]}}</td>		  
+				</tr>
+		{% endfor %}
+	  </tbody>
+	</table>
+	{% if step != 1 %}
+		<a href="/view/?step={{step}}&page={{page-1}}"><button type="button" class="btn btn-success ml-auto">Previous Page</button> </a>
+		<a href="/view/?step={{step}}&page={{page+1}}"><button type="button" class="btn btn-success float-right">Next Page</button> </a>
+	{% endif %}
+{% endblock %}
