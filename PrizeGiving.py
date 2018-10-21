@@ -13,7 +13,6 @@
 ##	██████████████████████████████████████████████████████████████████
 ##==============================================================================
 
-
 from flask import Flask, render_template, flash, request, redirect, jsonify
 from data.database import database
 from flask_json import FlaskJSON, JsonError, json_response
@@ -24,7 +23,6 @@ json = FlaskJSON(app)
 def homepage():
     return render_template("home.html")
 
-
 @app.route('/mark/')
 def mark():
     try:
@@ -33,7 +31,6 @@ def mark():
         return render_template("mark.html", data=data)
     except:
         return render_template("mark.html")
-
 
 @app.route('/view/')
 def view():
@@ -54,7 +51,6 @@ def view():
         return render_template("view.html", data=data, step=step, page=page)
     except:
         return render_template("view.html")
-
 		
 @app.route('/view/absents/')
 def viewabsents():
@@ -64,8 +60,6 @@ def viewabsents():
         return render_template("absents.html", data=data)
     except:
         return render_template("absents.html")
-
-
 		
 @app.route('/update/')
 def update():
@@ -76,7 +70,6 @@ def update():
     except:
         return redirect(request.referrer)
 
-
 @app.route('/fix/')
 def fix():
     try:
@@ -86,7 +79,6 @@ def fix():
     except:
         return render_template("fix.html")
 
-
 @app.route('/update/fix/')
 def fixupdate():
     try:
@@ -95,7 +87,6 @@ def fixupdate():
         return redirect(request.referrer)
     except:
         return redirect(request.referrer)
-
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
